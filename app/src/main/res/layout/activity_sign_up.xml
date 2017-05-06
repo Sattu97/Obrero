@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#26A69A"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <LinearLayout
+        android:id="@+id/login_text_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Signed Up Already? "
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Log in"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" here."
+
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Sign Up!"
+        android:textColor="#fff"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_title"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        app:cardCornerRadius="5dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="30dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/nameauto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:counterMaxLength="10"
+
+                    app:theme="@style/Autocomplete">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/user_name_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableTint="#FF4081"
+                        android:hapticFeedbackEnabled="true"
+                        android:hint="Name"
+                        android:inputType="textAutoComplete"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:nextFocusForward="@+id/user_phone_no" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/phoneauto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint=""
+                    app:counterMaxLength="10"
+
+                    app:theme="@style/Autocomplete">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/phone_no_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:digits="0123456789"
+                        android:drawableTint="#FF4081"
+                        android:hapticFeedbackEnabled="true"
+                        android:hint="Phone No (+91)"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:nextFocusForward="@+id/user_phone_no" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/addressauto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint=""
+                    app:theme="@style/Autocomplete">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/address_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:drawableTint="#FF4081"
+                        android:hapticFeedbackEnabled="true"
+                        android:hint="Address"
+                        android:inputType="textAutoComplete"
+                        android:maxLines="1"
+                        android:nextFocusForward="@+id/user_locality" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/localityauto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint=""
+                    app:counterMaxLength="10"
+
+                    app:theme="@style/Autocomplete">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/locality_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:drawableTint="#FF4081"
+                        android:hapticFeedbackEnabled="true"
+                        android:hint="Locality"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:nextFocusForward="@+id/user_password" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/passwordauto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:theme="@style/Autocomplete">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/password_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:drawableTint="#FF4081"
+                        android:hapticFeedbackEnabled="true"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:nextFocusForward="@+id/user_password" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/sign_up_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:background="#3F51B5"
+                    android:text="Sign Up"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/user_profile_photo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/login_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/user_profile_image_background"
+        android:elevation="4dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/sign_up_user" />
+</RelativeLayout>
