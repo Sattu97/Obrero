@@ -88,7 +88,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void searchWorkers(String category,String locality){
-        String url="https://c7fb27f9.ngrok.io/api/searchworker?locality="+locality.toLowerCase()+"&occupation="+category.toLowerCase();
+        String url="https://b69300c0.ngrok.io/api/searchworker?locality="+locality.toLowerCase()+"&occupation="+category.toLowerCase();
         final ArrayList<LatLng> latLngs=new ArrayList<>();
         url=url.replaceAll(" ","%20");
         RequestQueue queue= Volley.newRequestQueue(context);

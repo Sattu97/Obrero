@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.google.firebase.messaging.FirebaseMessaging;
+
 
 import java.util.ArrayList;
 
@@ -14,13 +14,13 @@ import hemantgtx950.com.oberero.R;
 
 
 public class CategoryActivity extends AppCompatActivity {
-
+    private RecyclerView categoryRecyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseMessaging.getInstance().subscribeToTopic("reply");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-        RecyclerView categoryRecyclerView = (RecyclerView) findViewById(R.id.category_recycler_view);
+        categoryRecyclerView = (RecyclerView) findViewById(R.id.category_recycler_view);
         categoryRecyclerView.setHasFixedSize(true);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(CategoryActivity.this,2);
         gridLayoutManager.setOrientation(GridLayoutManager.VERTICAL);
