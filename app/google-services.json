@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "495704179166",
+    "firebase_url": "https://obrero-18998.firebaseio.com",
+    "project_id": "obrero-18998",
+    "storage_bucket": "obrero-18998.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495704179166:android:aec451415e2cc370",
+        "android_client_info": {
+          "package_name": "hemantgtx950.com.oberero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495704179166-5jk9r8je0her35dqchjm2e0ebuvpeh78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLdaat9Rc-HaOYthW12PAFngxaB9QX1fI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 package hemantgtx950.com.oberero.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import hemantgtx950.com.oberero.Activities.MapsActivity;
 import hemantgtx950.com.oberero.R;
 import hemantgtx950.com.oberero.Utility.Utils;
 
@@ -34,14 +36,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof CategoryHolder){
             ((CategoryHolder) holder).catName.setText(categories.get(position));
             ((CategoryHolder) holder).catImage.setImageResource(Utils.getId(categories.get(position)));
             ((CategoryHolder) holder).cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent i=new Intent(context, MapsActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    i.putExtra("category",categories.get(position));
+                    context.startActivity(i);
                 }
             });
 

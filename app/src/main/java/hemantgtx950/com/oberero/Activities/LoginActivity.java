@@ -1,5 +1,6 @@
 package hemantgtx950.com.oberero.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -23,6 +24,7 @@ import hemantgtx950.com.oberero.R;
 import hemantgtx950.com.oberero.Utility.Utils;
 
 public class LoginActivity extends AppCompatActivity {
+private ProgressDialog progressDialog;
     private TextView signUpText;
     private EditText phnET,passET;
     private Button loginBtn;
@@ -31,9 +33,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressDialog=new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Logging In!!");
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+
         context=LoginActivity.this;
         phnET=(EditText)findViewById(R.id.user_phone_no_log_in);
-        passET=(EditText)findViewById(R.id.password_log_in);
+        passET=(EditText)findViewById(R.id.user_password);
         loginBtn=(Button)findViewById(R.id.login_button);
         signUpText = (TextView) findViewById(R.id.sign_up_text);
         signUpText.setPaintFlags(signUpText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -41,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
             }
         });
@@ -49,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                tryLogin(phnET.getText().toString(),passET.getText().toString());
             }
         });
 
@@ -58,7 +66,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void tryLogin(String phn,String pass){
-        String url="http://obrero.herokuapp.com/api/loginuser?phoneno="+phn+"&password="+pass;
+        progressDialog.show();
+        String url="https://b69300c0.ngrok.io/api/loginuser?phoneno="+phn+"&password="+pass;
         url=url.replaceAll(" ","%20");
         RequestQueue queue= Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(com.android.volley.Request.Method.GET, url,
@@ -68,18 +77,19 @@ public class LoginActivity extends AppCompatActivity {
                         try{
                             JSONObject jsonObject=new JSONObject(response);
                             if (jsonObject.get("_id")!=null){
+                                progressDialog.cancel();
                                 Intent i=new Intent(LoginActivity.this,CategoryActivity.class);
                                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(i);
                             }
                         }catch (JSONException e){
-
+                            progressDialog.cancel();
                         }
                     }
                 }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialog.cancel();
             }
         });
 
